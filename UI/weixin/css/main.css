@@ -1,0 +1,168 @@
+.navbar {
+	text-align: center;
+	font-size: 18px;
+	color: #FFFFFF;
+	background: url(../img/title.png);
+	height: 45px;
+	line-height: 45px;
+}
+.navbar i{
+	margin-top: 12px;
+	margin-left: 5px;
+	 
+}
+ 
+.selected li {
+	border-bottom: 1px solid #eee;
+	height: 50px;
+	line-height: 60px;
+	font-size: 12px;
+	color: #666666;
+	padding-left: 5px;
+	background: #FFFFFF;
+}
+.selected i{
+	margin: 20px 5px 0 5px;
+	 
+}
+.hotelSel {
+	color: #4205e6;
+	font-size: 12px;
+	float: right;
+	margin-right: 15px;
+}
+
+.hotelList {
+	margin-top: 10px;
+	border-bottom: 1px solid #eee;
+	background: #FFFFFF;
+}
+
+.hotelList li {
+	border-top: 1px solid #eee;
+	height: 45px;
+	line-height: 45px;
+	font-size: 15px;
+	color: #666666;
+	padding-left: 10px;
+	background: #FFFFFF;
+}
+
+.price {
+	color: #b0458c;
+	float: right;
+	margin-right: 5px;
+	font-size: 12px;
+}
+
+.hotelDetail {
+	margin-top: 10px;
+	border-top: 1px solid #eee;
+	background: #FFFFFF;
+}
+
+.noticebox {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	position: relative;
+	padding-left: 30px;
+	padding-right: 10px;
+	background: #FFFFFF;
+}
+
+.noticebox .notice {
+	color: #808080;
+	font-size: 14px;
+}
+
+.clear {
+	clear: both;
+}
+
+.item {
+	border-bottom: 1px dashed #1da9df;
+	margin-left: 2px;
+	height: 40px;
+	line-height: 50px;
+	text-align: center;
+}
+
+.content {
+	margin: 0 2px 80px 2px;
+	background-color: #F6F6F6;
+ 
+}
+
+.title {
+	padding-left: 2px;
+	color: #666;
+	border-bottom: 1px solid #BFBFBF;
+}
+
+.hotelName {
+	height: 40px;
+	line-height: 40px;
+	padding-left: 10px;
+	font-size: 16px;
+	border-bottom: 1px dashed #1da9df;
+}
+.sale {
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+	margin: 20px 5% 0 5%;
+}
+
+.sale a {
+	color: #FFFFFF;
+	background: url(../img/order.png) no-repeat;
+	font-size: 18px;
+	width: 100%;
+	display: block;
+	height: 100%;
+	background-size: 100% 100%;
+	-webkit-background-size: 100% 100%;
+	-moz-background-size: 100% 100%;
+}
+
+.sale a:hover {
+	background: url(../img/loginButtonSel.png) no-repeat;
+	background-size: 100% 100%;
+	-webkit-background-size: 100% 100%;
+	-moz-background-size: 100% 100%;
+}
+.footer {
+	border-top: 1px solid #dfdfdf;
+	height: 30px;
+	line-height: 30px;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	background: #fff;
+	width: 100%;
+	font-size: 1em;
+	display: table;
+	z-index: 1000;
+	background-color: #1da9df;
+}
+
+.footer li {
+	float: left;
+	list-style: none;
+	font-size: 1em;
+	width: 50%;
+	text-align: center;
+	 
+	border-left: 1px solid #FFFFFF;
+	color: #FFFFFF;
+	
+}
+
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+
+ 
