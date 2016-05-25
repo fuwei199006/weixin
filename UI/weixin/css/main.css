@@ -1,3 +1,61 @@
+/*home*/
+
+.header {
+	color: #FFFFFF;
+	font-size: 15px;
+	margin: 0 2px 0 2px;
+}
+
+.header div{
+	margin-top: 10px;
+}
+.header i{
+	margin:0 2px 0 2px ;
+}
+.body {
+	background: url(../img/background1.jpg);
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	display: block;
+	height: 710px;
+}
+.hotelTitle{
+	color: #FFFFFF;
+	margin-top: 40px;
+}
+.type{
+
+	margin-top: 100px;
+}
+.type li{
+	float: left;
+	list-style-type: none;
+	width: 40%;
+	color: #FFFFFF;
+	font-size: 20px;
+	text-align: center;
+	
+}
+.float{
+ 
+	height: 150px;
+	z-index: 1000;
+	font-size: 30px;
+	color: #FFFFFF;
+	background-color: #666666;
+	opacity: 0.4;
+	padding-top: 20px;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+    width: 100%;
+	
+}
+.welcome{
+	font-size: 20px;
+	 
+}
 .navbar {
 	text-align: center;
 	font-size: 18px;
@@ -6,12 +64,12 @@
 	height: 45px;
 	line-height: 45px;
 }
-.navbar i{
+
+.navbar i {
 	margin-top: 12px;
 	margin-left: 5px;
-	 
 }
- 
+
 .selected li {
 	border-bottom: 1px solid #eee;
 	height: 50px;
@@ -21,10 +79,11 @@
 	padding-left: 5px;
 	background: #FFFFFF;
 }
-.selected i{
+
+.selected i {
 	margin: 20px 5px 0 5px;
-	 
 }
+
 .hotelSel {
 	color: #4205e6;
 	font-size: 12px;
@@ -90,7 +149,6 @@
 .content {
 	margin: 0 2px 80px 2px;
 	background-color: #F6F6F6;
- 
 }
 
 .title {
@@ -106,6 +164,7 @@
 	font-size: 16px;
 	border-bottom: 1px dashed #1da9df;
 }
+
 .sale {
 	height: 45px;
 	line-height: 45px;
@@ -131,6 +190,7 @@
 	-webkit-background-size: 100% 100%;
 	-moz-background-size: 100% 100%;
 }
+
 .footer {
 	border-top: 1px solid #dfdfdf;
 	height: 30px;
@@ -152,17 +212,21 @@
 	font-size: 1em;
 	width: 50%;
 	text-align: center;
-	 
 	border-left: 1px solid #FFFFFF;
 	color: #FFFFFF;
-	
 }
 
-.fl{
+
+/*common*/
+
+.fl {
 	float: left;
 }
-.fr{
+
+.fr {
 	float: right;
 }
 
- 
+.center {
+	text-align: center;
+}
