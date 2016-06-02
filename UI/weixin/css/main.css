@@ -6,40 +6,47 @@
 	margin: 0 2px 0 2px;
 }
 
-.header div{
+.header div {
 	margin-top: 10px;
 }
-.header i{
-	margin:0 2px 0 2px ;
+
+.header i {
+	margin: 0 2px 0 2px;
 }
+
 .body {
 	background: url(../img/homeBackground.png);
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	-webkit-background-size: cover;
 	display: block;
-	height: 710px;
+	position:absolute;
+	width: 100%;
+	height: 100%;
+	/*height: 710px;*/
 }
-.hotelTitle{
+
+.hotelTitle {
 	color: #FFFFFF;
 	margin-top: 40px;
 }
-.type{
 
-	margin-top: 100px;
+.type {
+	margin-top: 120px;
+	margin-left: 5%;
 }
-.type li{
+
+.type li {
 	float: left;
 	list-style-type: none;
 	width: 40%;
 	color: #FFFFFF;
 	font-size: 20px;
 	text-align: center;
-	
 }
-.float{
- 
-	height: 150px;
+
+.float {
+	height: 100px;
 	z-index: 1000;
 	font-size: 30px;
 	color: #FFFFFF;
@@ -49,13 +56,13 @@
 	position: fixed;
 	bottom: 0;
 	left: 0;
-    width: 100%;
-	
+	width: 100%;
 }
-.welcome{
+
+.welcome {
 	font-size: 20px;
-	 
 }
+
 .navbar {
 	text-align: center;
 	font-size: 18px;
@@ -215,24 +222,61 @@
 	color: #FFFFFF;
 }
 
-.h-footer{
+.h-footer {
 	height: 50px;
 	line-height: 50px;
 }
-.d-hotelName{
+
+.d-hotelName {
 	color: #666666;
 	font-size: 1.5em;
 	margin: 5px 0 5px 5px;
 }
- .d-hotelRange{
+
+.d-hotelRange {
 	color: #666666;
 	font-size: .9em;
 	margin: 5px 0 5px 5px;
 }
-.bold{
+
+.bold {
 	font-size: 1.3em;
 }
- 
+
+.type span {
+	background-color: #BFBFBF;
+	border-radius: 50%;
+	height: 60px;
+	width: 60px;
+	display: inline-block;
+	line-height: 60px;
+}
+
+.type span i {
+	opacity: 1.2;
+	z-index: 1000;
+}
+
+.fa-hourglass {
+	color: darkblue;
+	font-size: 1.0em;
+}
+
+.fa-hotel {
+	color: darkblue;
+	font-size: 1.0em;
+}
+
+.myOrder {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.telphone{
+	color: #FFFFFF;
+	font-size: .5em;
+	margin-top: 15px;
+}
+
 /*common*/
 
 .fl {
