@@ -1,0 +1,1 @@
+E:\github\weixin\src\WeiXinUI\WeiXinUI.Tests\obj\Debug\WeiXinUI.Tests.csprojResolveAssemblyReference.cache
