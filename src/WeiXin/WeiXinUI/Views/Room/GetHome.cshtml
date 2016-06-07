@@ -1,4 +1,4 @@
-﻿ 
+﻿
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
@@ -20,5 +20,94 @@
 
 </head>
 <body>
-<h1>Hello</h1>
+ 
+
+    <script>
+        $(function () {
+            //表格的初始化
+            $("#hotelTb").datagrid({
+                url: '@Url.Action("GetHotelInfo")',
+                height: $(window).height() - 20,
+                width: $(window).width(),
+                title: "酒店管理",
+                pagination: true,
+                autoRowHeight: false,
+                loadMsg: "正在加载数据.....",
+                fit: true,
+                idField: 'RoleId',
+                singleSelect: true,
+                toolbar: [{
+                    text: '添加',
+                    iconCls: 'icon-add',
+                    handler: function () {
+                        OpenWin1("添加酒店", '@Url.Action("AddRole")', 600, 200);
+                    }
+                }, {
+                    text: '删除',
+                    iconCls: 'icon-remove',
+                    handler: function () {
+                        var row = $("#menuTable").datagrid("getSelected");
+                        if (row) {
+                            $.messager.confirm("确认删除", "是否要删除", function (res) {
+                                if (res) {
+                                    $.post('@Url.Action("DeleteRole")', { roleid: row.RoleId }, function (data) {
+                                        if (!data) {
+                                            $.messager.alert("error", "删除错误：" + data);
+                                        } else {
+                                            ReloadGrid();
+                                        }
+                                    });
+                                }
+                            });
+                        } else {
+                            $.messager.alert('警告', '请选择一个数据！');
+                        }
+
+                    }
+                }, {
+                    text: '修改',
+                    iconCls: 'icon-edit',
+                    handler: function () {
+                        var row = $("#hotelTb").datagrid("getSelected");
+                        if (row) {
+                            OpenWin1("修改数据", '@Url.Action("EdidRole")' + "?roleid=" + row.RoleId, 600, 200);
+                        } else {
+                            $.messager.alert('警告', '请选择一个数据！');
+                        }
+                    }
+                }],
+                rownumbers: true,
+                fitcolumns: true,
+                columns: [
+                    [
+                        { align: 'center', field: 'RoomType', title: '角色名称', width: 100 },
+                        { align: 'center', field: 'RoomePrice', title: '角色描述', width: 100 },
+                        { align: 'center', field: 'RoomDesc', title: '角色描述', width: 100 },
+                        { align: 'center', field: 'RoomData', title: '角色描述', width: 100 },
+                        { align: 'center', field: 'CreateDate', title: '角色描述', width: 100 },
+                        { align: 'center', field: 'StartDate', title: '角色描述', width: 100 },
+                        { align: 'center', field: 'EndDate', title: '角色描述', width: 100 }
+
+                    ]
+                ]
+            });
+
+
+        });
+        //关闭当前的win
+        function Close() {
+            CloseWin();
+        }
+
+        //重新加载当前的表格
+        function ReloadGrid() {
+            $("#hotelTb").datagrid("reload");
+        }
+    </script>
+
+
+
+    <table id="hotelTb"></table>
+    <div id="win"></div>
+
 </body>
