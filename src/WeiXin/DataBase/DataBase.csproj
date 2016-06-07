@@ -30,8 +30,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,16 +55,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Common\Cookie.cs" />
+    <Compile Include="Common\Fetch.cs" />
+    <Compile Include="Common\RegExp.cs" />
+    <Compile Include="Common\ValidateCodeType.cs" />
+    <Compile Include="Common\ValidateCode_Style10.cs" />
+    <Compile Include="Common\XmlOperate.cs" />
+    <Compile Include="Dal\BaseRepository.cs" />
+    <Compile Include="Dal\EFContextFactory.cs" />
+    <Compile Include="Models\Mapping\MemberMap.cs" />
+    <Compile Include="Models\Mapping\RoomMap.cs" />
+    <Compile Include="Models\Mapping\SOrderDetailMap.cs" />
+    <Compile Include="Models\Mapping\SOrderMap.cs" />
+    <Compile Include="Models\Member.cs" />
+    <Compile Include="Models\MemberContext.cs" />
+    <Compile Include="Models\Room.cs" />
+    <Compile Include="Models\SOrder.cs" />
+    <Compile Include="Models\SOrderDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CodeTemplates\ReverseEngineerCodeFirst\Context.tt" />
-    <Content Include="CodeTemplates\ReverseEngineerCodeFirst\Entity.tt" />
-    <Content Include="CodeTemplates\ReverseEngineerCodeFirst\Mapping.tt" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

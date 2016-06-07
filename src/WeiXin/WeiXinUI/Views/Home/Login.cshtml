@@ -1,0 +1,83 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href='@Url.Content("~/Content/Login/css/main.css")' rel="stylesheet" />
+    <script type="text/javascript" src='@Url.Content("~/Scripts/jquery-1.9.0.js")'></script>
+    <script type="text/javascript" src='@Url.Content("~/Content/Login/js/jQuery.js")'></script>
+    <script type="text/javascript" src='@Url.Content("~/Content/Login/js/script.js")'></script>
+    <script type="text/javascript" src='@Url.Content("~/Content/Login/js/fun.base.js")'></script>
+</head>
+
+<body>
+    <div class="login">
+        <div class="box png">
+            @*    <div >logo</div>*@
+            <div class="input">
+                <div class="log">
+                    <div class="name">
+                        <label>用户名</label>
+                        <input type="text" class="text" id="value_1" placeholder="用户名" name="value_1" tabindex="1" value="admin" />
+                    </div>
+                    <div class="pwd">
+                        <label>密 码</label>
+                        <input type="password" class="text" id="value_2" placeholder="密码" name="value_2" tabindex="2" value="111" />
+
+                        @*
+                            <div class="check"></div>*@
+                    </div>
+                    <div class="name">
+                        <label>验证码:</label>
+                        <input type="text" class="verfy" id="value_3" placeholder="验证码" tabindex="3" />
+                        <img style="cursor: pointer; vertical-align: middle" src="@Url.Action("VerifyImage", "Home")" id="VerifyImage" title="看不清？点击换一个" onclick=" javascript:document.getelementbyid('verifyimage').src='@Url.Action("VerifyImage", "Home")?r=' +=+ math.random();return=Math.random();return false;">
+                        <div id="tipdiv" class="tip" style="display: none"></div>
+                    </div>
+                    <input type="button" id="login" class="submit" tabindex="3" value="登录" />
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="air-balloon ab-1 png"></div>
+    <div class="air-balloon ab-2 png"></div>
+    <div class="footer"></div>
+
+
+
+
+
+</body>
+
+</html>
+
+<script>
+    $(function () {
+        $("#login").click(function () {
+            $.post('@Url.Action("LoginIn")', { userName: $("#value_1").val(), pwd: $("#value_2").val(), verifyCode: $("#value_3").val() }, function (data) {
+                if (data == "OK") {
+                    window.location.href = '@Url.Action("Index", "Home")';
+                } else {
+                    $("#tipdiv").show();
+                    $("#tipdiv").html(data);
+                }
+            });
+        });
+
+        document.onkeydown = function (event) {
+            var e = event ? event : (window.event ? window.event : null);
+            if (e.keyCode == 13) {
+                //执行的方法
+                $.post('@Url.Action("LoginIn")', { userName: $("#value_1").val(), pwd: $("#value_2").val(), verifyCode: $("#value_3").val() }, function (data) {
+                    if (data == "OK") {
+                        window.location.href = '@Url.Action("Index", "Home")';
+                    } else {
+                        $("#tipdiv").show();
+                        $("#tipdiv").html(data);
+                    }
+                });
+
+            }
+        }
+    });
+</script>

@@ -10,6 +10,7 @@ CREATE TABLE Member (
  MemberEmail nvarchar(20) NOT NULL ,
  MemberLevel  nvarchar(10) DEFAULT 0,
  CreateDate datetime,
+ MemberStatus nvarchar(10) DEFAULT 0
  )
 
  CREATE TABLE Room(

@@ -1,0 +1,37 @@
+.KasarMenu {
+    /*background: red;*/
+    border-bottom: 1px solid aliceblue;
+    text-align: left;
+    height: 25px;
+    line-height: 25px;
+    overflow: hidden;
+    margin-left: 10px;
+    font-size: 14px;
+    text-decoration: none;
+    display: block;
+    padding-left: 15px;
+    line-height: 22px;
+    padding-top: 2px;
+    border: 0;
+    font-weight: 500;
+    color: rgb(0,0,0);
+    margin-top: 1px;
+}
+
+    .KasarMenu:hover {
+        background: #038FCB;
+        cursor: pointer;
+    }
+
+body {
+    padding: 0px;
+    margin: 0px;
+    font-size: 12px !important;
+    font-family: "Arial 新宋体";
+}
+
+/*采用Table布局的功能添加td的样式*/
+td {
+    margin: 5px;
+    padding: 5px;
+}

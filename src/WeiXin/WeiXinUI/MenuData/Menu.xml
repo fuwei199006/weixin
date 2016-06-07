@@ -1,0 +1,10 @@
+﻿<Menus>
+  <Deafult src="http://www.cnblogs.com/"></Deafult>
+  <!--默认的首页 可以不加-->
+
+  <Group title="记工管理" icon="">
+    <Item src="Client" title="工人管理"  icon="" id="Client"></Item>
+    <Item src="WorkRecorder" title="日常记工"  icon="" id="WorkRecorder"></Item>
+    <Item src="SumSalary" title="工资合计"  icon="" id="SumSalary"></Item>
+  </Group>
+</Menus>

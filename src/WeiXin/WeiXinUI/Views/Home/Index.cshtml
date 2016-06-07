@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+    <script src='@Url.Content("~/Scripts/jquery-1.9.0.js")'></script>
+    <script src='@Url.Content("~/Content/jquery-easyui-1.4.2/jquery.easyui.min.js")'></script>
+    @*<link href='@Url.Content("~/Content/jquery-easyui-1.4.2/themes/default/easyui.css")' rel="stylesheet"/>*@
+    <link href='@Url.Content("~/Content/jquery-easyui-1.4.2/themes/bootstrap/easyui.css")' rel="stylesheet"/>
+    <link href='@Url.Content("~/Content/jquery-easyui-1.4.2/themes/icon.css")' rel="stylesheet"/>
+    <link href='@Url.Content("~/Content/Kasar/css/KasarStyle.css")' rel="stylesheet"/>
+
+</head>
+<body class="easyui-layout">
+<div style="background-image: url('@Url.Content("~/Content/themes/base/images/nav_h.png")'); height: 50px; line-height: 20px; width: 100%;">
+    <div style="float: left; width: 50%;">
+        <h2 style="color: white">Laofu 1.0</h2>
+    </div>
+    <div style="color: white; float: left; text-align: right; width: 49%;">
+        欢迎您！ <span id="userSpan">admin</span> &nbsp;
+        <a id="exitMenu">退出系统</a>
+    </div>
+</div>
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'west',split:true,title:' '" style="width: 200px">
+        <div id="accordion" class="easyui-accordion" style="height: 685px; width: 300px;">
+            <div class="panel" style="width: 300px;">
+                <div title="" class="panel-body panel-body-noheader panel-body-noborder accordion-body" style="height: 553px; width: 300px;">
+                    <div class="KasarMenu">
+                        <a onclick="showPage('../Room/GetHome', '酒店管理', 'Hotel')">酒店管理</a>
+                    </div>
+              
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div data-options="region:'center'">
+        <div id="tt" class="easyui-tabs">
+            <div id="divfalt" title="首页">
+                <div style="margin-left: 300px; margin-top: 300px">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
+<script type="text/javascript">
+    /// 初始化
+    $(function() {
+        $("#accordion").accordion({
+            //fit: true,
+            active: 2,
+            animate: false,
+            border: false,
+            height: $(window).height() - 90
+        });
+
+        //IntiateMenu();
+
+        $("#exitMenu").click(function() {
+            @*$.post('@Url.Action("ExitLogin")', function (data) {
+                if (data != "true") {
+                    $.messager.alert(data);
+                } else {
+                    window.location.href = '@Url.Action("Login")';
+                }
+            });*@
+        });
+
+        @*$.post('@Url.Action("GetUserName")', function (name) {
+            $("#userSpan").text(name);
+        });*@
+
+
+
+    });
+
+  
+/// Iframe 显示指定页面
+    function showPage(url, title, menuid) {
+        if (title)
+            $("#divMain").panel("setTitle", title);
+
+        // 判断选项卡是否存在
+        var isExists = $('#tt').tabs('exists', title);
+        if (!isExists) {
+            $('#tt').tabs('add', {
+                id: "tab_" + "_" + menuid,
+                title: title,
+                content: '<iframe id=ifm_' + menuid + ' frameborder="0" style="width:' + ($(window).width() - 205) + 'px;height:' + ($(window).height() - 80) + 'px; border:0;" src="' + url + '"></iframe>',
+                closable: true,
+                tools: [
+                    {
+                        iconCls: 'icon-mini-refresh',
+                        handler: function() {
+                            $("#ifm_" + menuid).attr('src', $("#ifm_" + menuid).attr('src'));
+
+                        }
+                    }
+                ]
+            });
+        } else {
+            $('#tt').tabs('select', title);
+        }
+    }
+
+    function CreateTitle(title, icon) {
+        var div = $("<div></div>");
+
+        div.attr({
+            style: "overflow: auto; padding: 10px;",
+            'data-options': "iconCls:'icon-ok'",
+            title: title
+        });
+        return div;
+    }
+
+    function CreateItems(item) {
+        var div = $("<div></div>");
+        div.addClass("KasarMenu");
+        var a = $("<a onclick=showPage('" + item.src + "','" + item.title + "','" + item.id + "')></a>");
+
+        a.text(item.title);
+        div.append(a);
+        return div;
+    }
+</script>
