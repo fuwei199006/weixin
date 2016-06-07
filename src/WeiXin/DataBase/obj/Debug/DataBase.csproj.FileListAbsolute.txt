@@ -1,0 +1,5 @@
+E:\github\weixin\src\WeiXin\DataBase\bin\Debug\DataBase.dll
+E:\github\weixin\src\WeiXin\DataBase\bin\Debug\DataBase.pdb
+E:\github\weixin\src\WeiXin\DataBase\obj\Debug\DataBase.csprojResolveAssemblyReference.cache
+E:\github\weixin\src\WeiXin\DataBase\obj\Debug\DataBase.dll
+E:\github\weixin\src\WeiXin\DataBase\obj\Debug\DataBase.pdb
