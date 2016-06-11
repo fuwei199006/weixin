@@ -13,6 +13,8 @@
     <meta content="" name="author" />
     <script src='@Url.Content("~/Scripts/jquery-1.9.0.js")'></script>
     <script src='@Url.Content("~/Content/jquery-easyui-1.4.2/jquery.easyui.min.js")'></script>
+
+    <script src="~/Scripts/Common.js"></script>
     @*<link href='@Url.Content("~/Content/jquery-easyui-1.4.2/themes/default/easyui.css")' rel="stylesheet"/>*@
     <link href='@Url.Content("~/Content/jquery-easyui-1.4.2/themes/bootstrap/easyui.css")' rel="stylesheet" />
     <link href='@Url.Content("~/Content/jquery-easyui-1.4.2/themes/icon.css")' rel="stylesheet" />
@@ -46,7 +48,7 @@
                     text: '删除',
                     iconCls: 'icon-remove',
                     handler: function () {
-                        var row = $("#menuTable").datagrid("getSelected");
+                        var row = $("#hotelTb").datagrid("getSelected");
                         if (row) {
                             $.messager.confirm("确认删除", "是否要删除", function (res) {
                                 if (res) {
@@ -80,13 +82,13 @@
                 fitcolumns: true,
                 columns: [
                     [
-                        { align: 'center', field: 'RoomType', title: '角色名称', width: 100 },
-                        { align: 'center', field: 'RoomePrice', title: '角色描述', width: 100 },
-                        { align: 'center', field: 'RoomDesc', title: '角色描述', width: 100 },
-                        { align: 'center', field: 'RoomData', title: '角色描述', width: 100 },
-                        { align: 'center', field: 'CreateDate', title: '角色描述', width: 100 },
-                        { align: 'center', field: 'StartDate', title: '角色描述', width: 100 },
-                        { align: 'center', field: 'EndDate', title: '角色描述', width: 100 }
+                        { align: 'center', field: 'RoomType', title: '房间类型', width: 100 },
+                        { align: 'center', field: 'RoomePrice', title: '房间价格', width: 100 },
+                        { align: 'center', field: 'RoomDesc', title: '房间描述', width: 100 },
+                        { align: 'center', field: 'RoomData', title: '房间数据', width: 100 },
+                        { align: 'center', field: 'CreateDate', title: '添加时间', width: 100 },
+                        { align: 'center', field: 'StartDate', title: '生效时间', width: 100 },
+                        { align: 'center', field: 'EndDate', title: '结束时间', width: 100 }
 
                     ]
                 ]

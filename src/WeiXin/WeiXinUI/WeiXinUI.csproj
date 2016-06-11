@@ -198,6 +198,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
+    <Compile Include="Controllers\WeixinController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -939,6 +940,33 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\Weixin\css\font-awesome.css" />
+    <Content Include="Content\Weixin\css\font-awesome.min.css" />
+    <Content Include="Content\Weixin\css\global.css" />
+    <Content Include="Content\Weixin\css\login.css" />
+    <Content Include="Content\Weixin\css\main.css" />
+    <Content Include="Content\Weixin\css\register.css" />
+    <Content Include="Content\Weixin\Detail.html" />
+    <Content Include="Content\Weixin\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Weixin\Home.html" />
+    <Content Include="Content\Weixin\img\background.png" />
+    <Content Include="Content\Weixin\img\background1.jpg" />
+    <Content Include="Content\Weixin\img\homeBackground.png" />
+    <Content Include="Content\Weixin\img\homeBackground1.png" />
+    <Content Include="Content\Weixin\img\hotel.png" />
+    <Content Include="Content\Weixin\img\login_pwd.png" />
+    <Content Include="Content\Weixin\img\login_user.png" />
+    <Content Include="Content\Weixin\img\msg.png" />
+    <Content Include="Content\Weixin\img\order.png" />
+    <Content Include="Content\Weixin\img\orderSel.png" />
+    <Content Include="Content\Weixin\img\pwd.png" />
+    <Content Include="Content\Weixin\img\title.png" />
+    <Content Include="Content\Weixin\img\user_name.png" />
+    <Content Include="Content\Weixin\js\jquery-1.7.2.min.js" />
+    <Content Include="Content\Weixin\js\register.js" />
+    <Content Include="Content\Weixin\Login.html" />
+    <Content Include="Content\Weixin\Register.html" />
+    <Content Include="Content\Weixin\Search.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -971,6 +999,12 @@
     <Content Include="Content\jquery-easyui-1.4.2\demo\treegrid\treegrid_data3.json" />
     <Content Include="Content\jquery-easyui-1.4.2\demo\tree\tree_data1.json" />
     <Content Include="Content\jquery-easyui-1.4.2\demo\tree\tree_data2.json" />
+    <Content Include="Content\Weixin\.project" />
+    <Content Include="Content\Weixin\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Weixin\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Weixin\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Weixin\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\Weixin\fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\CalJs\ArrayExtention.js" />
     <Content Include="Scripts\CalJs\Calayr.js" />
@@ -1017,6 +1051,10 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Room\GetHome.cshtml" />
+    <Content Include="Views\Room\DeleteRole.cshtml" />
+    <Content Include="Views\Room\AddRole.cshtml" />
+    <Content Include="Views\Room\EdidRole.cshtml" />
+    <Content Include="Views\Weixin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
