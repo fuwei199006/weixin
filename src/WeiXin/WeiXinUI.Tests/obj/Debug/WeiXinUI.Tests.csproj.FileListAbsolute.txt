@@ -135,3 +135,5 @@ E:\WorkSpace\Code\微信\weixin\src\WeiXin\WeiXinUI.Tests\obj\Debug\WeiXinUI.Tes
 E:\WorkSpace\Code\微信\weixin\src\WeiXin\WeiXinUI.Tests\obj\Debug\WeiXinUI.Tests.pdb
 E:\WorkSpace\Code\微信\weixin\src\WeiXin\WeiXinUI.Tests\bin\Debug\DataBase.dll
 E:\WorkSpace\Code\微信\weixin\src\WeiXin\WeiXinUI.Tests\bin\Debug\DataBase.pdb
+E:\github\weixin\src\WeiXin\WeiXinUI.Tests\bin\Debug\DataBase.dll
+E:\github\weixin\src\WeiXin\WeiXinUI.Tests\bin\Debug\DataBase.pdb

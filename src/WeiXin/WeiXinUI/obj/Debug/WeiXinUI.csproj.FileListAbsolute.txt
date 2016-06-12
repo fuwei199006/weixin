@@ -303,3 +303,5 @@ E:\WorkSpace\Code\微信\weixin\src\WeiXin\WeiXinUI\obj\Debug\WeiXinUI.dll
 E:\WorkSpace\Code\微信\weixin\src\WeiXin\WeiXinUI\obj\Debug\WeiXinUI.pdb
 E:\WorkSpace\Code\微信\weixin\src\WeiXin\WeiXinUI\bin\DataBase.dll
 E:\WorkSpace\Code\微信\weixin\src\WeiXin\WeiXinUI\bin\DataBase.pdb
+E:\github\weixin\src\WeiXin\WeiXinUI\bin\DataBase.dll
+E:\github\weixin\src\WeiXin\WeiXinUI\bin\DataBase.pdb

@@ -1051,7 +1051,6 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Room\GetHome.cshtml" />
-    <Content Include="Views\Room\DeleteRole.cshtml" />
     <Content Include="Views\Room\AddRole.cshtml" />
     <Content Include="Views\Room\EdidRole.cshtml" />
     <Content Include="Views\Weixin\Index.cshtml" />

@@ -11,22 +11,13 @@ namespace WeiXinUI.Controllers
     public class BaseController : Controller
     {
 
-        public BaseRepository<Member> MemberRepository
-        {
-            // ReSharper disable once ObjectCreationAsStatement
-            get
-            {
-               return new BaseRepository<Member>();
-            }
-        }
+        public const string OK = "OK";
 
-        public BaseRepository<Room> RoomRepository
-        {
-            // ReSharper disable once ObjectCreationAsStatement
-            get
-            {
-                return new BaseRepository<Room>();
-            }
-        } 
-	}
+        public BaseRepository<Member> MemberRepository => new BaseRepository<Member>();
+
+        public BaseRepository<Room> RoomRepository => new BaseRepository<Room>();
+        public BaseRepository<SOrder> SOrderRepository => new BaseRepository<SOrder>();
+        public BaseRepository<SOrderDetail> SOrderDetailRepository => new BaseRepository<SOrderDetail>();
+        
+    }
 }
