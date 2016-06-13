@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using Calayr.Common;
@@ -29,7 +31,7 @@ namespace WeiXinUI.Controllers
 			byte[] bytes = validateCodeType.CreateImage(out code);
 			Cookie.Save("VerifyCode", code, 1);//保存验证码
 
-
+            
 			return File(bytes, @"image/jpeg");
 		}
 		public string LoginIn(string userName, string pwd, string verifyCode)

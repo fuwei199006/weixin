@@ -1,3 +1,71 @@
-﻿ 
+﻿<script src='@Url.Content("~/Scripts/jquery-1.9.0.js")'></script>
+<script src='@Url.Content("~/Content/jquery-easyui-1.4.2/jquery.easyui.min.js")'></script>
 
-<h2>title</h2>
+<script src="~/Scripts/Common.js"></script>
+@*<link href='@Url.Content("~/Content/jquery-easyui-1.4.2/themes/default/easyui.css")' rel="stylesheet"/>*@
+<link href='@Url.Content("~/Content/jquery-easyui-1.4.2/themes/bootstrap/easyui.css")' rel="stylesheet" />
+<link href='@Url.Content("~/Content/jquery-easyui-1.4.2/themes/icon.css")' rel="stylesheet" />
+<table>
+    <tr>
+        <td>A:</td>
+        <td>
+            <select type="text" class="easyui-combobox" style="width: 170px">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+            </select>
+        </td>
+        <td>B:</td>
+        <td>
+            <input type="text" class="easyui-textbox" />
+        </td>
+    </tr>
+    <tr>
+        <td>A:</td>
+        <td>
+            <input type="text" class="easyui-textbox" />
+        </td>
+        <td>B:</td>
+        <td>
+            <input type="text" class="easyui-textbox" />
+        </td>
+    </tr>
+    <tr>
+        <td>A:</td>
+        <td>
+            <input type="text" class="easyui-datebox" data-options="formatter:myformatter,parser:myparser" />
+        </td>
+        <td>B:</td>
+        <td>
+            <input type="text" class="easyui-datebox" data-options="formatter:myformatter,parser:myparser" />
+        </td>
+    </tr>
+    <tr>
+        <td>A:</td>
+        <td>
+            <input type="text" class="easyui-datebox" data-options="formatter:myformatter,parser:myparser" />
+        </td>
+
+    </tr>
+</table>
+
+<script type="text/javascript">
+        function myformatter(date){
+            var y = date.getFullYear();
+            var m = date.getMonth()+1;
+            var d = date.getDate();
+            return y+'-'+(m<10?('0'+m):m)+'-'+(d<10?('0'+d):d);
+        }
+        function myparser(s){
+            if (!s) return new Date();
+            var ss = (s.split('-'));
+            var y = parseInt(ss[0],10);
+            var m = parseInt(ss[1],10);
+            var d = parseInt(ss[2],10);
+            if (!isNaN(y) && !isNaN(m) && !isNaN(d)){
+                return new Date(y,m-1,d);
+            } else {
+                return new Date();
+            }
+        }
+</script>
