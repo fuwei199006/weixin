@@ -1055,6 +1055,8 @@
     <Content Include="Views\Room\EdidRole.cshtml" />
     <Content Include="Views\Weixin\Index.cshtml" />
     <None Include="Views\Weixin\Detail.cshtml" />
+    <Content Include="Views\Weixin\Login.cshtml" />
+    <Content Include="Views\Weixin\Register.cshtml" />
     <None Include="Views\Weixin\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>

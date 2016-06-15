@@ -23,14 +23,14 @@
         <div class="type">
             <ul>
                 <li>
-                    <span class="barget" style="line-height: 60px">
-                        <i class="fa fa-hourglass" aria-hidden="true"></i>
+                    <span class="barget" style="line-height: 60px" id="shtime">
+                        <i class="fa fa-hourglass" aria-hidden="true"></i>&nbsp;
                     </span>
                     <h5 id="htime" data-value="1">钟点房</h5>
                 </li>
                 <li>
-                    <span class="barget" style="line-height: 60px">
-                        <i class="fa fa-hotel" aria-hidden="true"></i>
+                    <span class="barget" style="line-height: 60px" id="shnormal">
+                        <i class="fa fa-hotel" aria-hidden="true"></i> &nbsp;
                     </span>
                     <h5 id="hnormal" data-value="2">正常房</h5>
                 </li>
@@ -52,7 +52,14 @@
         $("#htime").click(function () {
             window.location.href = '@Url.Action("Search",new {type="1"})';
         });
+        $("#shtime").click(function () {
+            window.location.href = '@Url.Action("Search",new {type="1"})';
+        });
         $("#hnormal").click(function () {
+
+            window.location.href = '@Url.Action("Search",new {type="2"})';
+        });
+        $("#shnormal").click(function () {
 
             window.location.href = '@Url.Action("Search",new {type="2"})';
         });

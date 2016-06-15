@@ -72,7 +72,7 @@
 <script>
     $(function () {
 
-        $.post("", function (res) {
+        $.post('@Url.Action("GetRoomList","Room")', {type:1,starDt:'2016-06-14',endDt:'2015-06-15'},function (res) {
             if (!!res) {
                 $.each(res, function(index, value) {
                     var li = $("<li ></li>").html(value.Type);
