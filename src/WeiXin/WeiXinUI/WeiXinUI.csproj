@@ -1054,6 +1054,8 @@
     <Content Include="Views\Room\AddRole.cshtml" />
     <Content Include="Views\Room\EdidRole.cshtml" />
     <Content Include="Views\Weixin\Index.cshtml" />
+    <None Include="Views\Weixin\Detail.cshtml" />
+    <None Include="Views\Weixin\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

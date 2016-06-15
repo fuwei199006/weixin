@@ -1,0 +1,124 @@
+﻿ <!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <link rel="stylesheet" type="text/css" href="~/Content/Weixin/css/global.css"/>
+    <link rel="stylesheet" type="text/css" href="~/Content/Weixin/css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="~/Content/Weixin/css/font-awesome.min.css"/>
+</head>
+
+<body>
+<div class="content">
+    <div class="navbar">
+        <i class="fa  fa-angle-left fl fa-left"></i> 酒店详情
+    </div>
+    <div class="selected">
+        <ul>
+            <li>昇悦酒店<span class="hotelSel">酒店选择></span></li>
+            <li> <i class="fa  fa-calendar  fl "></i>入住<b class="bold" id="star">05月24日 </b> 离店 <b class="bold" id="end">05月25日</b><i class="fa  fa-calendar   fr "></i>
+        </ul>
+    </div>
+    <div class="hotelList">
+        <ul id="hotelList">
+            <li>大床房 <span class="price">￥280起</span></li>
+            <li>标间 <span class="price">￥280起</span></li>
+            <li>高级大床房 <span class="price">￥280起</span></li>
+            <li>双床房 <span class="price">￥280起</span></li>
+        </ul>
+    </div>
+    <div class="hotelDetail">
+        <ul>
+            <li class="title">酒店介绍</li>
+            <li class="hotelName"><b>昇悦酒店</b></li>
+            <li>
+                <div style="float: left;"><img src="img/hotel.png" width="120px"/>
+                </div>
+                <div class="item">酒店服务</div>
+                <div class="item">评论</div>
+                <div class="item">地址</div>
+                <div class="item">电话</div>
+            </li>
+        </ul>
+    </div>
+    <div class="clear">
+    </div>
+    <div class="sale">
+        <a href="Detail.html" id="order">立刻下单</a>
+    </div>
+    <div class="clear">
+    </div>
+</div>
+<footer class="footer">
+    <ul>
+        <li><i class="fa fa-share" id="btnShare"></i>分享</li>
+        <li><i class="fa fa-star-o "></i>收藏</li>
+    </ul>
+</footer>
+    <div style="display: none">
+        <input type="date" id="starDate" />
+        <input type="date" id="endDate" />
+    </div>
+</body>
+
+</html>
+<script src="~/Content/Weixin/js/jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    $(function () {
+
+        $.post("", function (res) {
+            if (!!res) {
+                $.each(res, function(index, value) {
+                    var li = $("<li ></li>").html(value.Type);
+                    var span = $("<span class='price'></span>").html(value.Price);
+                    li.append(span);
+                    li.click(function() {
+
+                    });
+                    $("#hotelList").append(li);
+                });
+            }
+
+        });
+        $("#order").click(function() {
+            var phone = "123";
+            var user = "小明";
+            var price = "123";
+            var type = "大床房";
+            var paras = "star=" + $("#star").val() + "&end=" + $("#end").val() + "&phone=" + phone + "&user=" + user + "price=" + price + "&type=" + type;
+            window.location.href = '@Url.Action("Detail")'+"?"+paras;
+        });
+
+        $("#star").click(function() {
+            $("#starDate").click();
+        });
+        $("#starDate").click(function() {
+            $("#star").text($("#starDate").val());
+        });
+        $("#end").click(function() {
+            $("#endDate").click();
+        });
+        $("#btnShare").click(function() {
+            weixinShareTimeline("test", "desc", "wwww", "asdfasdfa");
+        });
+
+
+    });
+
+    function weixinShareTimeline(title,desc,link,imgUrl){
+        WeixinJSBridge.invoke('shareTimeline',{
+        'img_url':imgUrl,
+            //”img_width”:”640″,
+            //”img_height”:”640″,
+       'link':link,
+        'desc': desc,
+        'title':title
+        });
+    }
+</script>

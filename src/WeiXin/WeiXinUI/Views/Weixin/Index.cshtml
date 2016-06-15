@@ -12,8 +12,8 @@
 <body>
     <div class="body">
         <header class="header">
-            <div class="fl" style="margin-left: 2%;"><i class="fa fa-user" aria-hidden="true"></i><a class="myOrder" href="Search.html"> 个人中心</a></div>
-            <div class="fr" style="margin-right: 2%;"><i class="fa fa-list" aria-hidden="true"></i><a class="myOrder" href="Search.html"> 我的订单</a></div>
+            @*<div class="fl" style="margin-left: 2%;"><i class="fa fa-user" aria-hidden="true"></i><a class="myOrder" href="Search.html"> 个人中心</a></div>
+            <div class="fr" style="margin-right: 2%;"><i class="fa fa-list" aria-hidden="true"></i><a class="myOrder" href="Search.html"> 我的订单</a></div>*@
         </header>
         <div class="clear"></div>
         <div class="hotelTitle center">
@@ -26,13 +26,13 @@
                     <span class="barget" style="line-height: 60px">
                         <i class="fa fa-hourglass" aria-hidden="true"></i>
                     </span>
-                    <h5>钟点房</h5>
+                    <h5 id="htime" data-value="1">钟点房</h5>
                 </li>
                 <li>
                     <span class="barget" style="line-height: 60px">
                         <i class="fa fa-hotel" aria-hidden="true"></i>
                     </span>
-                    <h5>正常房</h5>
+                    <h5 id="hnormal" data-value="2">正常房</h5>
                 </li>
             </ul>
         </div>
@@ -45,17 +45,18 @@
     </div>
 
 </body>
-
-</html>
-<script src="js/jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script>
+ 
+<script src="~/Content/Weixin/js/jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script>
 <script>
     $(function () {
+        $("#htime").click(function () {
+            window.location.href = '@Url.Action("Search",new {type="1"})';
+        });
+        $("#hnormal").click(function () {
 
-    })
-</script>
-<script src="~/Content/Weixin/js/jquery-1.7.2.min.js"></script>
-<script>
-    $(function() {
-
+            window.location.href = '@Url.Action("Search",new {type="2"})';
+        });
     });
 </script>
+ 
+ 

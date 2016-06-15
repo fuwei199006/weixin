@@ -1,0 +1,70 @@
+﻿ <!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <link rel="stylesheet" type="text/css" href="~/Content/Weixin/css/global.css"/>
+    <link rel="stylesheet" type="text/css" href="~/Content/Weixin/css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="~/Content/Weixin/css/font-awesome.min.css"/>
+
+</head>
+
+<body>
+<div class="content">
+    <div class="navbar">
+        <i class="fa  fa-angle-left fl fa-left"></i> 订单详情
+    </div>
+    <div class="d-hotelName"><b>昇悦酒店</b>
+    </div>
+    <div class="d-hotelRange">入住<b class="bold" id="star">05月24日 </b> 离店 <b class="bold" id="end">05月25日（住一晚）</b>
+    </div>
+
+    <div class="hotelList">
+        <ul id="hotelList">
+            <li id="hoomType">大床房 <span class="price">0</span></li>
+            <li >入住人: <span class="price" id="custom">0</span></li>
+            <li >手机号: <span class="price" id="phone">0</span></li>
+
+        </ul>
+    </div>
+    <pre style="color: #666666; font-size: .9em; overflow: hidden;">
+  注意事项：
+  1、以上房价已包含 10%的服务费	
+  2、原馨悦圆床房（部分无窗）因 
+  3、为方便会员管理新增微信会员、白金会员。		
+  4、微信会员关注酒店微信公众号即可获得 
+  6、会员、协议、订房中心正价入 	
+       </pre>
+    <footer class="footer h-footer">
+        <ul>
+            <li style="background-color: #FFFFFF; color: #666; width: 60%;">总价: <b id="price">￥258</b> </li>
+            <li style="width: 40%;" id="btnSubmit" >提交订单</li>
+        </ul>
+    </footer>
+</div>
+</body>
+
+</html>
+<script src="~/Content/Weixin/js/jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    $(function() {
+        var homeType = "大床房";
+        var count = "1间";
+        var custome = "小明";
+        var phone = "136658777545";
+        var price = "258";
+        $("#hoomType").text(homeType).append($("<span class='price'></span>").text(count));
+        $("#custom").text(custome);
+        $("#phone").text(phone);
+        $("#price").val("￥" + price);
+        $("#btnSubmit").click(function() {
+
+        });
+    });
+</script>

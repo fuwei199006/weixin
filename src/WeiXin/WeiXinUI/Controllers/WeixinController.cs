@@ -16,7 +16,25 @@ namespace WeiXinUI.Controllers
         {
             return View();
         }
+        public ActionResult Search()
+        {
+            return View();
+        }
 
+        public ActionResult Detail()
+        {
+            return View();
+        }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        public ActionResult Register()
+        {
+            return View();
+        }
         public JsonResult GetHotelList()
         {
             return Json("");
