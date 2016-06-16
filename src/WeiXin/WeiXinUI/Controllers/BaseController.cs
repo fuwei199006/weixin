@@ -12,9 +12,7 @@ namespace WeiXinUI.Controllers
     {
 
         public const string OK = "OK";
-
         public BaseRepository<Member> MemberRepository => new BaseRepository<Member>();
-
         public BaseRepository<Room> RoomRepository => new BaseRepository<Room>();
         public BaseRepository<SOrder> SOrderRepository => new BaseRepository<SOrder>();
         public BaseRepository<SOrderDetail> SOrderDetailRepository => new BaseRepository<SOrderDetail>();

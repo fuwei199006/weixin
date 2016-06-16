@@ -71,11 +71,7 @@ namespace WeiXinUI.Controllers
 	        {
                 return OK;
             }
-	        else
-	        {
-	            return String.Empty;
-	        }
-	     
+	        return string.Empty;
 	    }
 
 

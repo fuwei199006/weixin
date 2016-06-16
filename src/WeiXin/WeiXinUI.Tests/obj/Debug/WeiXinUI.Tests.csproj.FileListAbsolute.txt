@@ -137,3 +137,6 @@ E:\github\weixin\src\WeiXin\WeiXinUI.Tests\bin\Debug\zh-Hans\EntityFramework.res
 E:\github\weixin\src\WeiXin\WeiXinUI.Tests\obj\Debug\WeiXinUI.Tests.csprojResolveAssemblyReference.cache
 E:\github\weixin\src\WeiXin\WeiXinUI.Tests\obj\Debug\WeiXinUI.Tests.dll
 E:\github\weixin\src\WeiXin\WeiXinUI.Tests\obj\Debug\WeiXinUI.Tests.pdb
+E:\github\weixin\src\WeiXin\WeiXinUI.Tests\bin\Debug\WebGrease.dll
+E:\github\weixin\src\WeiXin\WeiXinUI.Tests\bin\Debug\Antlr3.Runtime.dll
+E:\github\weixin\src\WeiXin\WeiXinUI.Tests\bin\Debug\Antlr3.Runtime.pdb

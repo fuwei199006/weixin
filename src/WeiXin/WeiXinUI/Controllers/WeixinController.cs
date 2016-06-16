@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using DataBase.Models;
 using Newtonsoft.Json;
+using WebGrease.Css.Extensions;
 
 namespace WeiXinUI.Controllers
 {
@@ -40,7 +41,7 @@ namespace WeiXinUI.Controllers
             return Json("");
         }
 
-
+        [HttpPost]
         public string AddOrder(string phone,int roomId,DateTime dt)
         {
             var room = RoomRepository.LoadEntities(r => r.ID == roomId).FirstOrDefault();
@@ -74,15 +75,28 @@ namespace WeiXinUI.Controllers
             SOrderDetailRepository.AddEntity(entity);
             return OK;
         }
+        [HttpPost]
+        public string PayOrder(int orderId)
+        {
+            var order = SOrderRepository.LoadEntities(r => r.ID == orderId).FirstOrDefault();
+            order.OrderStatus = "1002";
+            SOrderRepository.UpdateEntity(order);
+            var sorderList= SOrderDetailRepository.LoadEntities(r => r.OrderId == orderId);
+            sorderList.ForEach(u =>
+             {
+                 u.OrderDetailStatus = "1002";
+                 
+             });
+            SOrderDetailRepository.UpdateEntities(sorderList);
+            return OK;
+        }
+
 
         public JsonResult GetMemberByPhoneOrWeixinNum(string phoneOrWeixinNum)
         {
            return Json(MemberRepository.LoadEntities(r => r.MemberPhone == phoneOrWeixinNum).FirstOrDefault());
         }
 
-        //public JsonResult GetOrderByMemberIdOrPhone(string memberIdOrPhone)
-        //{
-        //    return Json(SOrderRepository.)
-        //}
+ 
 	}
 }
