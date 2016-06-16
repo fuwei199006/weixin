@@ -13,5 +13,6 @@ namespace DataBase.Models
         public string MemberLevel { get; set; }
         public Nullable<System.DateTime> CreateDate { get; set; }
         public string MemberStatus { get; set; }
+        public string Password { get; set; }
     }
 }

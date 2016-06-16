@@ -10,7 +10,7 @@ using DataBase.Common;
 
 namespace WeiXinUI.Controllers
 {
-	public class HomeController : Controller
+	public class HomeController : BaseController
 	{
 		//
 		// GET: /Home/
@@ -63,6 +63,20 @@ namespace WeiXinUI.Controllers
 			menu = menu.Replace("@", "");
 			return Json(menu, JsonRequestBehavior.AllowGet);
 		}
+
+	    public string IsLogin(string phone, string pwd)
+	    {
+	        var login = MemberRepository.LoadEntities(r => r.MemberPhone == phone && r.Password == pwd);
+	        if (login!=null && login.Any())
+	        {
+                return OK;
+            }
+	        else
+	        {
+	            return String.Empty;
+	        }
+	     
+	    }
 
 
 	}

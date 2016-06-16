@@ -70,6 +70,7 @@
 </html>
 <script src="~/Content/Weixin/js/jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script>
 <script>
+    var Request = GetRequest();
     $(function () {
 
         $.post('@Url.Action("GetRoomList","Room")', {type:1,starDt:'2016-06-14',endDt:'2015-06-15'},function (res) {
@@ -113,12 +114,25 @@
 
     function weixinShareTimeline(title,desc,link,imgUrl){
         WeixinJSBridge.invoke('shareTimeline',{
-        'img_url':imgUrl,
+            'img_url':imgUrl,
             //”img_width”:”640″,
             //”img_height”:”640″,
-       'link':link,
-        'desc': desc,
-        'title':title
+            'link':link,
+            'desc': desc,
+            'title':title
         });
+    }
+    //js获得Url数值
+    function GetRequest() {
+        var url = location.search; //获取url中"?"符后的字串
+        var theRequest = new Object();
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            var strs = str.split("&");
+            for (var i = 0; i < strs.length; i++) {
+                theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+            }
+        }
+        return theRequest;
     }
 </script>

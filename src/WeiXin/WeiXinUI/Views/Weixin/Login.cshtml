@@ -20,11 +20,11 @@
             <ul>
                 <li>
                     <img src="img/login_user.png">
-                    <input type="text" class="text" placeholder="请输入用户名">
+                    <input type="text" class="text" placeholder="请输入手机号" id="txtUserName">
                 </li>
                 <li>
                     <img src="img/login_pwd.png">
-                    <input type="password" class="psd" placeholder="请输入确认密码">
+                    <input type="password" class="psd" placeholder="请输入确认密码" id="txtPassword">
                 </li>
             </ul>
         </div>
@@ -43,13 +43,24 @@
 </body>
 
 </html>
-<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script src="~/Content/Weixin/js/jquery-1.7.2.min.js"></script>
+<script src="~/Content/Weixin/js/cookie.js"></script>
 <script>
 $(function() {
     $("#submit").on("touchstart", function() {});
 
-    $("#submit").on("click", function() {
-        window.location.href = "Home.html";
+    $("#submit").on("click", function () {
+        $.post('@Url.Action("IsLogin","Home")', {}, function (res) {
+            if (!!res) {
+                var userName = $("#txtUserName").val();
+                addCookie("phone", userName,7*24);
+                window.location.href = '@Url.Action("Index","Weixin")';
+            } else {
+                alert("登录失败");
+            }
+         
+        });
+      
     });
 
 });

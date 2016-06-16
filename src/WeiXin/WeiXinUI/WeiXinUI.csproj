@@ -940,6 +940,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\Weixin\js\cookie.js" />
     <Content Include="Content\Weixin\css\font-awesome.css" />
     <Content Include="Content\Weixin\css\font-awesome.min.css" />
     <Content Include="Content\Weixin\css\global.css" />

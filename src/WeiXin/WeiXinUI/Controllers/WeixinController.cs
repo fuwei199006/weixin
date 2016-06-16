@@ -41,16 +41,37 @@ namespace WeiXinUI.Controllers
         }
 
 
-        public string AddOrder(string order,int roomId)
+        public string AddOrder(string phone,int roomId,DateTime dt)
         {
             var room = RoomRepository.LoadEntities(r => r.ID == roomId).FirstOrDefault();
-            var orderEntity = JsonConvert.DeserializeObject<SOrder>(order);
-            var orderDetailEntity = JsonConvert.DeserializeObject<SOrderDetail>(order);
-            orderEntity.CreateDate=DateTime.Now;
-            orderDetailEntity.CreateDate=DateTime.Now;
-            
+            var member = MemberRepository.LoadEntities(r => r.MemberPhone==phone).FirstOrDefault();
+            var orderEntity=new SOrder()
+            {
+                OrderNum = "1",
+                OrderStatus = "1001",
+                CreateDate = DateTime.Now,
+                OrderDate = dt,
+                MemberId = member.MemberId,
+                MemberName = member.MemberName
+                
+            };
+         
             SOrderRepository.AddEntity(orderEntity);
-            SOrderDetailRepository.AddEntity(orderDetailEntity);
+            var entity = new SOrderDetail()
+            {
+                OrderId=orderEntity.ID,
+                OrderDetailNum = "1",
+                OrderDetailStatus = "1001",
+                CreateDate = DateTime.Now,
+                RoomId = roomId,
+                RoomType = room.RoomType,
+                RoomePrice = room.RoomePrice,
+                RoomDesc = room.RoomDesc,
+                RoomData = room.RoomData,
+                MemberId = member.MemberId,
+                MemberName = member.MemberName
+            };
+            SOrderDetailRepository.AddEntity(entity);
             return OK;
         }
 
