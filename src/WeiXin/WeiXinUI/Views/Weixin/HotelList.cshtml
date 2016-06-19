@@ -1,0 +1,65 @@
+﻿
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <link rel="stylesheet" type="text/css" href="~/Content/Weixin/css/global.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Weixin/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Weixin/css/font-awesome.min.css" />
+
+</head>
+
+<body>
+    <div class="content">
+        <div class="navbar">
+            <i class="fa  fa-angle-left fl fa-left"></i>我的订单列表
+        </div>
+
+        <div class="hotelList">
+            <table id="hotelList" class="kpi-table">
+                <thead>
+                <th>房间类型</th>
+                <th>房间价格</th>
+                <th>订单时间 </th>
+                <th>订单状态 </th>
+                </thead>
+                <tbody id="hotelBody">
+              
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+<script src="~/Content/Weixin/js/jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    $(function() {
+        $.post('@Url.Action("GetOrderByMemberId","Weixin")', function(res) {
+              if (!!res) {
+                  $.each(res, function(index, value) {
+                      var tr = "<tr><td>" + value.RoomDesc + "</td>";
+                      tr += "<td>" + value.RoomePrice + "</td>";
+                      tr += "<td>" + value.CreateDate + "</td>";
+                      if (value.OrderDetailStatus=="1001")
+                          tr += "<td>" + "未支付" + "</td></tr>";
+                      if (value.OrderDetailStatus == "1002")
+                          tr += "<td>" + "已支付" + "</td></tr>";
+                      if (value.OrderDetailStatus == "1003")
+                          tr += "<td>" + "已取消" + "</td></tr>";
+                      $("#hotelBody").append(tr);
+                  });
+              }
+        });
+    });
+</script>

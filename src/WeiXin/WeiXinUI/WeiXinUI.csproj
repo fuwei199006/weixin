@@ -80,6 +80,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -206,6 +208,11 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\sms\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -940,6 +947,11 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\Weixin\css\mobiscroll.animation.css" />
+    <Content Include="Content\Weixin\css\mobiscroll.frame.css" />
+    <Content Include="Content\Weixin\css\mobiscroll.frame.ios.css" />
+    <Content Include="Content\Weixin\css\mobiscroll.scroller.css" />
+    <Content Include="Content\Weixin\css\mobiscroll.scroller.ios.css" />
     <Content Include="Content\Weixin\js\cookie.js" />
     <Content Include="Content\Weixin\css\font-awesome.css" />
     <Content Include="Content\Weixin\css\font-awesome.min.css" />
@@ -964,6 +976,18 @@
     <Content Include="Content\Weixin\img\title.png" />
     <Content Include="Content\Weixin\img\user_name.png" />
     <Content Include="Content\Weixin\js\jquery-1.7.2.min.js" />
+    <Content Include="Content\Weixin\js\jquery.touchSwipe.js" />
+    <Content Include="Content\Weixin\js\jquery.touchSwipe.min.js" />
+    <Content Include="Content\Weixin\js\mobiscroll.core.js" />
+    <Content Include="Content\Weixin\js\mobiscroll.datetime.js" />
+    <Content Include="Content\Weixin\js\mobiscroll.datetimebase.js" />
+    <Content Include="Content\Weixin\js\mobiscroll.frame.ios.js" />
+    <Content Include="Content\Weixin\js\mobiscroll.frame.js" />
+    <Content Include="Content\Weixin\js\mobiscroll.i18n.zh.js" />
+    <Content Include="Content\Weixin\js\mobiscroll.scroller.js" />
+    <Content Include="Content\Weixin\js\mobiscroll.scrollview.js" />
+    <Content Include="Content\Weixin\js\mobiscroll.select.js" />
+    <Content Include="Content\Weixin\js\mobiscroll.util.datetime.js" />
     <Content Include="Content\Weixin\js\register.js" />
     <Content Include="Content\Weixin\Login.html" />
     <Content Include="Content\Weixin\Register.html" />
@@ -1006,6 +1030,7 @@
     <Content Include="Content\Weixin\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\Weixin\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\Weixin\fonts\FontAwesome.otf" />
+    <Content Include="Properties\DataSources\System.Xml.XmlNode.datasource" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\CalJs\ArrayExtention.js" />
     <Content Include="Scripts\CalJs\Calayr.js" />
@@ -1037,6 +1062,13 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <None Include="Service References\sms\sms.disco" />
+    <None Include="Service References\sms\configuration91.svcinfo" />
+    <None Include="Service References\sms\configuration.svcinfo" />
+    <None Include="Service References\sms\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1050,14 +1082,17 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Home.cshtml" />
     <Content Include="Views\Room\GetHome.cshtml" />
     <Content Include="Views\Room\AddRole.cshtml" />
     <Content Include="Views\Room\EdidRole.cshtml" />
     <Content Include="Views\Weixin\Index.cshtml" />
+    <None Include="Service References\sms\sms.wsdl" />
+    <None Include="Views\Room\Order.cshtml" />
     <None Include="Views\Weixin\Detail.cshtml" />
     <Content Include="Views\Weixin\Login.cshtml" />
     <Content Include="Views\Weixin\Register.cshtml" />
+    <None Include="Views\Weixin\HotelList.cshtml" />
     <None Include="Views\Weixin\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -1076,6 +1111,12 @@
       <Project>{d339da0c-1149-4a69-9145-eaab011fa9bf}</Project>
       <Name>DataBase</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\sms\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

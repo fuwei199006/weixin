@@ -291,3 +291,35 @@
 .center {
 	text-align: center;
 }
+
+.kpi-table {
+	border: 0;
+	text-align: center;
+	width: 100%;
+}
+
+.kpi-table th {
+	height: 43px;
+	font-size: 0.9em;
+	text-align: center;
+	color: #BFBFBF;
+	/*color: #808080;*/
+	width: 18%;
+	font-weight: normal;
+	text-indent: 2%;
+	line-height: 43px;
+}
+
+.kpi-tbody tr {
+	border-top: 1px solid #edebe9;
+	padding: 5px;
+}
+
+.kpi-table td {
+	font-size: 1.0em;
+	/*border-bottom: 1px solid #e9e9e6;*/
+	text-align: center;
+	height: 52px;
+	overflow: hidden;
+	text-indent: 1%;
+}

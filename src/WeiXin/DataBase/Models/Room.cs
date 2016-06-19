@@ -13,5 +13,7 @@ namespace DataBase.Models
         public Nullable<System.DateTime> CreateDate { get; set; }
         public Nullable<System.DateTime> StartDate { get; set; }
         public Nullable<System.DateTime> EndDate { get; set; }
+        public int RoomStatus { get; set; }
+        public int Category { get; set; }
     }
 }

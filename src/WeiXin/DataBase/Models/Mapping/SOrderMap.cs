@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
+using DataBase.Models;
 
 namespace DataBase.Models.Mapping
 {

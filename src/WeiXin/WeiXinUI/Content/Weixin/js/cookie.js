@@ -13,7 +13,7 @@ function getCookie(objName) { //获取指定名称的cookie的值
     var arrStr = document.cookie.split("; ");
     for (var i = 0; i < arrStr.length; i++) {
         var temp = arrStr[i].split("=");
-        if (temp[0] == objName) return unescape(temp[1]);
+        if (temp[0].trim() == objName) return unescape(temp[1]);
     }
 }
 
@@ -30,9 +30,9 @@ function allCookie() { //读取所有保存的cookie字符串
     }
 }
 
-function $(m, n) {
-    return document.forms[m].elements[n].value;
-}
+//function $(m, n) {
+//    return document.forms[m].elements[n].value;
+//}
 
 function add_() {
     var cookie_name = $("myform", "cookie_name");
@@ -50,8 +50,7 @@ function del_() {
     var cookie_name = $("myform", "cookie_name");
     delCookie(cookie_name);
 }
-/ /添加
-cookie
+ 
 
 function addCookie(name, value, expires, path, domain) {
     var str = name + "=" + escape(value);
@@ -72,14 +71,8 @@ function addCookie(name, value, expires, path, domain) {
 function getCookie(name) {
     var str = document.cookie.split(";")
     for (var i = 0; i < str.length; i++) {
-        var str2 = str[i].split(” = ”);
-        if (str2[0] == name) return unescape(str2[1]);
+        var str2 = str[i].split('=');
+        if (str2[0].trim() == name) return unescape(str2[1]);
     }
 }
-//删除cookie 
-function delCookie(name) {
-    var date = new Date();
-    date.setTime(date.getTime() - 10000);
-    document.cookie = name + ” = n;
-    expire = ”+date.toGMTString();
-}
+ 

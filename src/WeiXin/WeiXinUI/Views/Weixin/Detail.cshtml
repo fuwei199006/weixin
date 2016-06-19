@@ -22,12 +22,12 @@
     </div>
     <div class="d-hotelName"><b>昇悦酒店</b>
     </div>
-    <div class="d-hotelRange">入住<b class="bold" id="star">05月24日 </b> 离店 <b class="bold" id="end">05月25日（住一晚）</b>
+    <div class="d-hotelRange">入住<b class="bold" id="star"> </b> 离店 <b class="bold" id="end"></b>
     </div>
 
     <div class="hotelList">
         <ul id="hotelList">
-            <li id="hoomType">大床房 <span class="price">0</span></li>
+            <li id="hoomType">  </li>
             <li >入住人: <span class="price" id="custom">0</span></li>
             <li >手机号: <span class="price" id="phone">0</span></li>
 
@@ -43,7 +43,7 @@
        </pre>
     <footer class="footer h-footer">
         <ul>
-            <li style="background-color: #FFFFFF; color: #666; width: 60%;">总价: <b id="price">￥258</b> </li>
+            <li style="background-color: #FFFFFF; color: #666; width: 60%;">总价: <b id="price"> </b> </li>
             <li style="width: 40%;" id="btnSubmit" >提交订单</li>
         </ul>
     </footer>
@@ -54,18 +54,32 @@
 <script src="~/Content/Weixin/js/jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script>
 <script>
     var Request = GetRequest();
+    var Room = {
+        "A001": "大床房",
+        "A002": "精品房",
+        "A003": "商务房",
+    };
     $(function() {
-        var homeType = "大床房";
+        var sDate = Request["star"];
+        var eDate = Request["end"];
         var count = "1间";
-        var custome = "小明";
-        var phone = "136658777545";
-        var price = "258";
-        $("#hoomType").text(homeType).append($("<span class='price'></span>").text(count));
+        var custome = Request["user"];
+        var phone = Request["phone"];
+        var price = Request["price"];
+        var homeType = Room[Request["type"]];
+        $("#hoomType").html(homeType+":").append($("<span class='price'></span>").text(count));
         $("#custom").text(custome);
         $("#phone").text(phone);
-        $("#price").val("￥" + price);
+        $("#price").html("￥" + price);
+        $("#star").html(sDate);
+        $("#end").html(eDate);
         $("#btnSubmit").click(function() {
-
+            $.post('@Url.Action("AddOrder")', { phone: phone, roomType: Request["type"] }, function (res) {
+                  if (res === "OK") {
+                      alert("您已经成功下单，谢谢你的光临！");
+                      window.location.href = '@Url.Action("Index")';
+                  }
+            });
         });
     });
     //js获得Url数值

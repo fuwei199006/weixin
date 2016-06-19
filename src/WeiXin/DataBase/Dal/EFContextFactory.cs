@@ -19,11 +19,13 @@ namespace DataBase.Dal
             //数据存储在线程栈中
             //线程内共享一个单例
             var dbcontext = CallContext.GetData("DbContext") as DbContext;
-
+          
             //判断线程里面是否有数据
             if (dbcontext == null) //线程的数据槽里面没有次上下文
             {
+             
                 dbcontext = new MemberContext(); //创建了一个EF上下文
+                dbcontext.Configuration.ValidateOnSaveEnabled = false; 
                 //存储指定对象
                 CallContext.SetData("DbContext", dbcontext);
             }

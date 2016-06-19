@@ -1,5 +1,5 @@
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
+using DataBase.Models;
 
 namespace DataBase.Models.Mapping
 {
@@ -32,6 +32,9 @@ namespace DataBase.Models.Mapping
             this.Property(t => t.MemberStatus)
                 .HasMaxLength(10);
 
+            this.Property(t => t.Password)
+                .HasMaxLength(100);
+
             // Table & Column Mappings
             this.ToTable("Member");
             this.Property(t => t.ID).HasColumnName("ID");
@@ -42,6 +45,7 @@ namespace DataBase.Models.Mapping
             this.Property(t => t.MemberLevel).HasColumnName("MemberLevel");
             this.Property(t => t.CreateDate).HasColumnName("CreateDate");
             this.Property(t => t.MemberStatus).HasColumnName("MemberStatus");
+            this.Property(t => t.Password).HasColumnName("Password");
         }
     }
 }

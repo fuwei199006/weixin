@@ -52,7 +52,7 @@
                         if (row) {
                             $.messager.confirm("确认删除", "是否要删除", function (res) {
                                 if (res) {
-                                    $.post('@Url.Action("DeleteRole")', { roleid: row.RoleId }, function (data) {
+                                    $.post('@Url.Action("DeleteRole")', { id: row.ID }, function (data) {
                                         if (!data) {
                                             $.messager.alert("error", "删除错误：" + data);
                                         } else {
@@ -66,22 +66,12 @@
                         }
 
                     }
-                }, {
-                    text: '修改',
-                    iconCls: 'icon-edit',
-                    handler: function () {
-                        var row = $("#hotelTb").datagrid("getSelected");
-                        if (row) {
-                            OpenWin1("修改数据", '@Url.Action("EdidRole")' + "?roleid=" + row.RoleId, 600, 200);
-                        } else {
-                            $.messager.alert('警告', '请选择一个数据！');
-                        }
-                    }
                 }],
                 rownumbers: true,
                 fitcolumns: true,
                 columns: [
                     [
+                        { align: 'center', field: 'ID', title: ' ', width: 100,hidden:true },
                         { align: 'center', field: 'RoomType', title: '房间类型', width: 100 },
                         { align: 'center', field: 'RoomePrice', title: '房间价格', width: 100 },
                         { align: 'center', field: 'RoomDesc', title: '房间描述', width: 100 },

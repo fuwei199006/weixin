@@ -19,11 +19,11 @@
         <div class="login-bar">
             <ul>
                 <li>
-                    <img src="img/login_user.png">
+                    <img src="~/Content/Weixin/img/login_user.png">
                     <input type="text" class="text" placeholder="请输入手机号" id="txtUserName">
                 </li>
                 <li>
-                    <img src="img/login_pwd.png">
+                    <img src="~/Content/Weixin/img/login_pwd.png">
                     <input type="password" class="psd" placeholder="请输入确认密码" id="txtPassword">
                 </li>
             </ul>
@@ -32,7 +32,7 @@
             <button class="submit" id="submit">
                 登陆
             </button>
-            <a href="Register.html">
+            <a href='@Url.Action("Register")'>
                 <div class="login-reg">
                     <p>莫有账号，先注册</p>
                 </div>
@@ -46,22 +46,37 @@
 <script src="~/Content/Weixin/js/jquery-1.7.2.min.js"></script>
 <script src="~/Content/Weixin/js/cookie.js"></script>
 <script>
-$(function() {
-    $("#submit").on("touchstart", function() {});
+    var Request = GetRequest();
+    $(function () {
+        $("#txtUserName").val(Request["phone"]);
+        $("#submit").on("touchstart", function() {});
 
-    $("#submit").on("click", function () {
-        $.post('@Url.Action("IsLogin","Home")', {}, function (res) {
-            if (!!res) {
-                var userName = $("#txtUserName").val();
-                addCookie("phone", userName,7*24);
-                window.location.href = '@Url.Action("Index","Weixin")';
-            } else {
-                alert("登录失败");
-            }
+        $("#submit").on("click", function () {
+            $.post('@Url.Action("IsLogin","Home")', { phone: $("#txtUserName").val(), pwd: $("#txtPassword").val() }, function (res) {
+                if (!!res) {
+                    var userName = $("#txtUserName").val();
+                    addCookie("phone", userName,7*24);
+                    window.location.href = '@Url.Action("Index","Weixin")';
+                } else {
+                    alert("登录失败");
+                }
          
-        });
+            });
       
-    });
+        });
 
-});
+    });
+    //js获得Url数值
+    function GetRequest() {
+        var url = location.search; //获取url中"?"符后的字串
+        var theRequest = new Object();
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            var strs = str.split("&");
+            for (var i = 0; i < strs.length; i++) {
+                theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+            }
+        }
+        return theRequest;
+    }
 </script>

@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
+using DataBase.Models;
 
 namespace DataBase.Models.Mapping
 {
@@ -24,7 +25,9 @@ namespace DataBase.Models.Mapping
 
             this.Property(t => t.RoomData)
                 .HasMaxLength(500);
-
+            // Primary Key
+            this.Property(t => t.RoomStatus);
+            this.Property(t => t.Category);
             // Table & Column Mappings
             this.ToTable("Room");
             this.Property(t => t.ID).HasColumnName("ID");
@@ -35,6 +38,8 @@ namespace DataBase.Models.Mapping
             this.Property(t => t.CreateDate).HasColumnName("CreateDate");
             this.Property(t => t.StartDate).HasColumnName("StartDate");
             this.Property(t => t.EndDate).HasColumnName("EndDate");
+            this.Property(t => t.RoomStatus).HasColumnName("RoomStatus");
+            this.Property(t => t.Category).HasColumnName("Category");
         }
     }
 }

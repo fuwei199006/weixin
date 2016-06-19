@@ -55,8 +55,8 @@
     $(function () {
         $("#login").click(function () {
             $.post('@Url.Action("LoginIn")', { userName: $("#value_1").val(), pwd: $("#value_2").val(), verifyCode: $("#value_3").val() }, function (data) {
-                if (data == "OK") {
-                    window.location.href = '@Url.Action("Index", "Home")';
+                if (data === "OK") {
+                    window.location.href = '@Url.Action("Home", "Home")';
                 } else {
                     $("#tipdiv").show();
                     $("#tipdiv").html(data);
@@ -66,11 +66,11 @@
 
         document.onkeydown = function (event) {
             var e = event ? event : (window.event ? window.event : null);
-            if (e.keyCode == 13) {
+            if (e.keyCode === 13) {
                 //执行的方法
                 $.post('@Url.Action("LoginIn")', { userName: $("#value_1").val(), pwd: $("#value_2").val(), verifyCode: $("#value_3").val() }, function (data) {
-                    if (data == "OK") {
-                        window.location.href = '@Url.Action("Index", "Home")';
+                    if (data === "OK") {
+                        window.location.href = '@Url.Action("Home", "Home")';
                     } else {
                         $("#tipdiv").show();
                         $("#tipdiv").html(data);

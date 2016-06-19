@@ -17,6 +17,11 @@ namespace WeiXinUI.Controllers
             return View();
         }
 
+        public ActionResult Order()
+        {
+            return View();
+        }
+
         public JsonResult GetHotelInfo()
         {
             try
@@ -24,6 +29,7 @@ namespace WeiXinUI.Controllers
                 var list = RoomRepository.LoadEntities().ToList();
                 return Json(list.Select(x=>new
                 {
+                    x.ID,
                      x.RoomType,x.RoomData,x.RoomDesc,x.RoomePrice,
                      CreateDate = x.CreateDate.HasValue ? x.CreateDate.Value.ToString("yyyy-MM-dd") : "",
                      StartDate=x.StartDate.HasValue?x.StartDate.Value.ToString("yyyy-MM-dd"):"",
@@ -75,10 +81,19 @@ namespace WeiXinUI.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult GetRoomList(string type,DateTime starDt,DateTime endDt)
+        public JsonResult GetRoomList(int type,DateTime starDt,DateTime endDt)
         {
-            var roomList = RoomRepository.LoadEntities(r=>r.RoomType==type&& r.StartDate.Value >= starDt && r.EndDate<= endDt);
-            return Json(roomList);
+            if (type != null && type!=0)
+            {
+                var roomList = RoomRepository.LoadEntities(r => r.Category == type && r.StartDate.Value >= starDt && r.EndDate <= endDt&&r.RoomStatus==1).GroupBy(r => r.RoomType).ToDictionary(x => x.Key, u => u);
+                return Json(roomList);
+            }
+            else
+            {
+                var roomList = RoomRepository.LoadEntities(r => r.StartDate.Value >= starDt && r.EndDate <= endDt && r.RoomStatus == 1).GroupBy(r => r.RoomType).ToDictionary(x => x.Key, u => u);
+                return Json(roomList);
+            }
+          
         }
 
 

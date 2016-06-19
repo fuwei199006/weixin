@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
+using DataBase.Models;
 
 namespace DataBase.Models.Mapping
 {
@@ -52,6 +53,7 @@ namespace DataBase.Models.Mapping
             this.Property(t => t.RoomData).HasColumnName("RoomData");
             this.Property(t => t.MemberId).HasColumnName("MemberId");
             this.Property(t => t.MemberName).HasColumnName("MemberName");
+            this.Property(t => t.OrderId).HasColumnName("OrderId");
         }
     }
 }

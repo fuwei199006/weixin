@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta id='viewport' name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+        <script src="js/jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+	</head>
+
+	<body>
+		<input type="date" name="" id="date" value="" style="width: 0px;height: 0px;" />
+		<input type="button" id="btntest" value="测试" />
+	</body>
+
+</html>
+<script>
+	$(function(){
+		$("#btntest").click(function(){
+			$("#date").focus();
+		});
+		
+	});
+</script>

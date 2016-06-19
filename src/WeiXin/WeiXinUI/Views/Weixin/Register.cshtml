@@ -10,8 +10,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
     <meta http-equiv="Access-Control-Allow-Origin" content="*">
-    <link rel="stylesheet" type="text/css" href="css/global.css" />
-    <link rel="stylesheet" type="text/css" href="css/login.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Weixin/css/global.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Weixin/css/login.css" />
 
 </head>
 
@@ -21,15 +21,16 @@
 
         <div class="login-bar">
             <ul>
-                <li><img src="img/login_user.png"><input type="text" class="text" placeholder="请输入用户名"></li>
-                <li><img src="img/msg.png"><input type="text" class="psd" placeholder="验证码"></li>
-                <li><img src="img/login_pwd.png"><input type="password" class="psd" placeholder="请输入密码"></li>
-                <li><img src="img/login_pwd.png"><input type="password" class="psd" placeholder="请输入确认密码"></li>
+                <li><img src="~/Content/Weixin/img/login_user.png"><input type="text" id="txtName" class="text" placeholder="请输入昵称"></li>
+                <li><img src="~/Content/Weixin/img/login_user.png"><input type="text" id="txtPhone" class="text" placeholder="请输入手机号"></li>
+                <li><img src="~/Content/Weixin/img/msg.png"><input type="text" class="psd" placeholder="验证码" id="txtCode"><input id="btnSent" type="button" style="float: right; border: 0;background-color: #eee" value="点击发送"/></li>
+                <li><img src="~/Content/Weixin/img/login_pwd.png"><input type="password" id="txtpwd" class="psd" placeholder="请输入密码"></li>
+                <li><img src="~/Content/Weixin/img/login_pwd.png"><input type="password" id="txtpwd2" class="psd" placeholder="请输入确认密码"></li>
             </ul>
         </div>
         <div class="login-btn">
             <button class="submit" id="submit">注册</button>
-            <a href="Login.html">
+            <a href='@Url.Action("Login")'>
                 <div class="login-reg">
                     <p>已有帐号，去登录</p>
                 </div>
@@ -41,9 +42,63 @@
 </body>
 
 </html>
-<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="~/Content/Weixin/js/jquery-1.7.2.min.js"></script>
+<script src="~/Content/Weixin/js/cookie.js"></script>
 <script>
 	$(function() {
-		$("#submit").on("touchstart", function() {});
+	    $("#submit").on("touchstart", function () { });
+
+	    $("#submit").click(function () {
+	        $("#submit").attr('disabled', 'disbaled');
+	        var code = getCookie("code");
+	       
+	        if (!$("#txtName").val() || !$("#txtPhone").val() || $("#txtPhone").val().length!==11|| !$("#txtCode").val() || !$("#txtpwd").val()) {
+	            alert("注册信息不完整 ！");
+	            return false;
+	        }
+	        if (code!== $("#txtCode").val()) {
+	            alert("验证码不正确 ！");
+	            return false;
+	        }
+            if ($("#txtpwd").val() !== $("#txtpwd2").val()) {
+                alert("再次输入的密码不一致！");
+                return false;
+            }
+            $.post('@Url.Action("Register","Home")', { phone: $("#txtPhone").val(), pwd: $("#txtpwd").val(), userName: $("#txtName").val() }, function (res) {
+                   if (res === "1") {
+                       alert("当前号码已经注册成会员，请直接登陆！");
+                     
+                   } else {
+                       alert("注册成功！");
+                   }
+                   window.location.href = '@Url.Action("Login")' + "?phone=" + $("#txtPhone").val();
+	        });
+	    });
+	    $("#btnSent").on("click", function () {
+	        var t = 0, n = 0;
+	        setInterval(function () {
+	            if (t == 0) {
+	                if (n == 1) {
+	                    // 终止循环
+	                    clearInterval();
+	                }
+	                t = 60;
+	                // 这个N是循环开关
+	                n = 1;
+	                $('#btnSent').attr('disabled', 'disbaled');
+	                $('#btnSent').val('60s重新发送...');
+	            } else {
+	                t--;
+	                $('#btnSent').attr('disabled', 'disbaled');
+	                $('#btnSent').val(t + 's重新发送...');
+	            }
+	        }, 1000);
+	        $.post('@Url.Action("SentMsg","Home")', { phone: $("#txtPhone").val() }, function (res) {
+	            var code = getCookie("code");
+	            alert("验证码:" + code);
+	        });
+	    });
 	});
+
+ 
 </script>

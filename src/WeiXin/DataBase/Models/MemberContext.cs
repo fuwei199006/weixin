@@ -1,6 +1,6 @@
 using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
 using DataBase.Models.Mapping;
+using DataBase.Models;
 
 namespace DataBase.Models
 {
